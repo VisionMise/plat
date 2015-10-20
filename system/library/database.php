@@ -83,7 +83,7 @@
 			} elseif (is_array($input)) {
 				return $this->commit($input);
 			} elseif (is_string($input)) {
-				return $this->query($input);
+				return $this->where($input);
 			} else {
 				return $this;
 			}
@@ -91,21 +91,30 @@
 
 		public function query($sql) {
 			$connection 	= $this->database->connection;
+
+
 			$result 		= $connection->query($sql);
 			$data 			= [];
 
 			if (!$result) {
 				$this->errors[] 	= $connection->error;
 				return false;
-			} else {
-				$this->lastResult	= $result;
+			} 
+
+			if (is_object($result) and ($result->num_rows > 0)) {
+				while ($row = $result->fetch_assoc()) {
+					$data[]	= $row;
+				}
 			}
 
-			while ($row = $result->fetch_assoc()) {
-				$data[]	= $row;
-			}
-
+			$this->lastResult	= $result;
 			return $data;
+		}
+
+		public function where($where) {
+			$sql 		= "SELECT * FROM `{$this->name}` WHERE $where;";
+			$records 	= $this->query($sql);
+			return (isset($records[0])) ? $records[0] : false;
 		}
 
 		public function record($id) {
