@@ -33,8 +33,8 @@ var notifyAPI = function() {
 	this.notify 	= function(title, message, data, callback) {
 		var options 	= {
 			body: 	message,
-			icon: 	'assets/img/ico/plat-black.ico',
-			tag: 	'Plat Framework'
+			icon: 	'assets/img/ico/plat-black.png',
+			tag: 	'PGE'
 		};
 
 		var note 		= new Notification(title, options);
