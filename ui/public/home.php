@@ -10,6 +10,11 @@
           </h2>
           <p class="appTagline"></p>
           <hr>
+          <a class="btn btn-primary" onclick="gsAPI.authPrompt();" href="javascript:void(0);">
+            &nbsp;
+            <span class="glyphicon glyphicon-lock"></span>
+            Sign In
+          </a>
           <div class="right">
             <div>
               <small><span class="server-time"></span></small>
