@@ -1,17 +1,16 @@
 <?php
 
-    namespace gameObject;
-
     abstract class gameObject extends plugin {
 
         public $name;
         public $type;
+        public $parent;
 
         protected $positionType;
         protected $position;
 
         //database record id
-        protected $recordId;
+        protected $id;
 
         //can be performed by object
         protected $actions          = [];
@@ -32,7 +31,8 @@
             $this->type             = $type;
             $this->positionType     = $positionType;
             $this->id               = $id;
-
+            
+            $this->loadSelf();
 
             if ($this->positionType() == 'map') $this->position = $location;
         }
@@ -50,6 +50,18 @@
 
         public function __set($key, $value) {
             $this->attributes[$key]     = $value;
+        }
+
+        protected function loadSelf() {
+            if (!$this->id) return false;
+
+            $table  = $this->table($this->type);
+            if (!$table) return false;
+
+            $record = $table->record($this->id);
+            if ($record) return false;
+
+            $this->attributes   = $record;
         }
     }
 ?>

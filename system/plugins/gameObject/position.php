@@ -36,6 +36,11 @@
                     $this->key      = 'map';
                     $this->value    = 0;
                 break;
+
+                case 'none':
+                    $this->key      = 'none';
+                    $this->value    = -1;
+                break;
             }
         }
     }
