@@ -1,0 +1,14 @@
+{
+	"name":			"gameObject",
+
+	"libraries":	[
+		"position",
+		"gameObject"
+	],
+
+	"config":		[
+		"gameObject"
+	],
+
+	"databases":	[]
+}
