@@ -30,11 +30,19 @@
 			$events 	= $this->data['events'][$id];
 			$removed 	= [];
 
-			foreach ($events as $index => $event) {
-				$uid 	= uniqid($id);
-				$this->sendEvent($event['event'], $event['data'], $uid);
-				$removed[]	= $index;
-			}
+			/*foreach ($events as $id => $set) {
+				foreach ($events as $index => $event) {
+					$uid 	= uniqid($id);
+					$this->sendEvent($event['event'], $event['data'], $uid);
+					$removed[]	= $index;
+				}
+			//}*/
+			$keys 		= array_keys($events);
+			$first 		= $keys[0];
+			$event 		= $events[$first];
+			$removed[]	= $first;
+			$uid 		= uniqid($id);
+			$this->sendEvent($event['event'], $event['data'], $uid);
 
 			foreach ($removed as $index) {
 				unset($events[$index]);
