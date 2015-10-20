@@ -1,0 +1,74 @@
+{
+	"version":		"1.0",
+	"templates":	{
+
+		"base_player":		{
+			"xp":			0,
+			"max_hp":		10,
+			"max_ap":		10,
+			"str":			1,
+			"int":			1,
+			"end":			1
+		},
+
+		"level_base": 		5.20,
+		"level_scale":		14.15,
+		"str_scale":		0.49,
+		"end_scale":		0.25,
+		"int_scale":		0.38,
+		"dmg_scale":		0.01,
+		"def_scale":		0.02,
+		"luck_scale":		0.03,
+		"hp_scale":			30,
+		"ap_scale":			5,
+
+		"max_level":		265
+
+	},
+
+	"skillList": {
+
+		"Combat Training":	{
+			"text":		"Increases damage when attacking",
+			"stat":		"dmg",
+			"icon":		"crosshairs",
+			"max":		10
+		},
+
+		"Martial Artist": 	{
+			"text":		"Increases defense when being attacked",
+			"stat":		"def",
+			"icon":		"shield",
+			"max":		10
+		},
+
+		"Merchant": 			{
+			"text":		"Increases Luck and Defense",
+			"stat":		"luck",
+			"icon":		"thumbs-o-up",
+			"max":		5
+		},
+
+		"Technology Expert":{
+			"text":		"Increases Intelligence",
+			"stat":		"int",
+			"icon":		"lightbulb-o",
+			"max":		10
+		},
+
+		"Medic": 			{
+			"text":		"Increases Endurance",
+			"stat":		"end",
+			"icon":		"heartbeat",
+			"max":		5
+		},
+
+		"Athlete":			{
+			"text":		"Increases Strength",
+			"stat":		"str",
+			"icon":		"male",
+			"max":		"7"
+		}
+	}
+
+}

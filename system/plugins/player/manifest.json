@@ -1,0 +1,23 @@
+{
+	"name":			"player",
+
+	"libraries":	[
+		"player"
+	],
+
+	"config":		[
+		"player"
+	],
+
+	"databases":	[
+		"local"
+	],
+
+	"local": 	{
+		"host":		"localhost",
+		"port":		"3306",
+		"username":	"pge",
+		"password":	"af3264ac7",
+		"schema":	"pge"
+	}
+}
