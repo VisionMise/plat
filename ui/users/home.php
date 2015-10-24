@@ -316,6 +316,8 @@
 
         </section>
 
+        <button class="play_button btn btn-primary">Play</button>
+
       </div>
     </div>
 
@@ -338,4 +340,10 @@
       .show()
     ;
   }
+
+  $('.play_button').on('click', function(event) {
+    gsAPI.page('map', {"map": 1}, '#content', function(data) {
+
+    });
+  });
 </script>

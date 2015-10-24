@@ -111,10 +111,17 @@
 			return $data;
 		}
 
-		public function where($where) {
+		public function where($where, $single = false) {
 			$sql 		= "SELECT * FROM `{$this->name}` WHERE $where;";
 			$records 	= $this->query($sql);
-			return (isset($records[0])) ? $records[0] : false;
+			
+			return (isset($records[0])) 
+				? (($single) 
+					? $records[0] 
+					: $records
+				)
+				: false
+			;
 		}
 
 		public function record($id) {

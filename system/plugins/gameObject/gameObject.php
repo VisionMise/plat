@@ -8,6 +8,7 @@
 
         protected $positionType;
         protected $position;
+        protected $objectTable;
 
         //database record id
         protected $id;
@@ -24,8 +25,10 @@
         //object properties
         protected $attributes       = [];
 
+        protected $log              = [];
+
         public function __construct($name, $type, $id = 0, position\type $positionType, position\point $location = null) {
-            parent::__construct($type);
+            parent::__construct($name);
 
             $this->name             = $name;
             $this->type             = $type;
@@ -34,7 +37,7 @@
             
             $this->loadSelf();
 
-            if ($this->positionType() == 'map') $this->position = $location;
+            if ($this->positionType->key == 'map') $this->position = $location;
         }
 
         public function __toString() {
@@ -55,11 +58,11 @@
         protected function loadSelf() {
             if (!$this->id) return false;
 
-            $table  = $this->table($this->type);
-            if (!$table) return false;
+            $table          = $this->table($this->type);
+            if (!$table)    return false;
 
-            $record = $table->record($this->id);
-            if ($record) return false;
+            $record         = $table->record($this->id);
+            if (!$record)   return false;
 
             $this->attributes   = $record;
         }

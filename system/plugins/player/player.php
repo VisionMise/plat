@@ -33,7 +33,7 @@
 			$this->table 		= $this->table('pge_players');
 			if (!$this->table) return false;
 
-			$this->info 		= $this->table->where("`email` = '{$this->email}' ORDER BY `created` DESC LIMIT 1;");
+			$this->info 		= $this->table->where("`email` = '{$this->email}' ORDER BY `created` DESC LIMIT 1;", true);
 
 			if (!$this->info) $this->create_base_player();
 			if (!$this->info) return false;
@@ -76,7 +76,6 @@
 
 			return $this->info;
 		}
-
 
 		private function calc_damage($str) {
 			$values 	= $this->templates;

@@ -8,6 +8,7 @@
 			$posType 		= new position\type('map');
 			$this->parent 	= $parent;
 			$this->location = $location;
+			$this->coords 	= "{$this->location->x}x{$this->location->y}";
 
 			parent::__construct('tile', 'tile', 0, $posType, $this->location);
 		}
