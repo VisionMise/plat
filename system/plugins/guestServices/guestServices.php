@@ -101,7 +101,7 @@
 				include($path);
 				$html 	= ob_get_clean();
 
-			if ($_SESSION['password_reset']) {
+			if (isset($_SESSION['password_reset']) and $_SESSION['password_reset']) {
 				$_SESSION['password_reset'] = false;
 				$html .= "<script>API.dialog('reset.enter', '');</script>";
 			}

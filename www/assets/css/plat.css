@@ -33,8 +33,12 @@ body {
 .panel.panel-default .panel-heading {
 }
 
-.text-primary, a:hover {
-	color: #abc;
+.bold {
+  	font-weight: 600;
+}
+
+.text-black {
+	color: #000;
 }
 
 .text-white {
@@ -70,7 +74,7 @@ a {
 }
 
 .panel.panel-default .panel-body {
-	background-color: rgba(255,255,255, 0.85);
+	background-color: rgba(255,255,255, 1);
 	background-image: none;
 	color: #222;
 }
@@ -115,11 +119,15 @@ a {
 	text-align:	right;
 }
 
+.alert-primary {
+	background-color: #2196f3;
+}
 
 .dialog {
 	opacity: 1;
 	z-index: 100000;
 }
+
 .dialog .panel {
 	box-shadow: rgba(0,0,0,0.25) 0px 12px 18px -4px;
 }

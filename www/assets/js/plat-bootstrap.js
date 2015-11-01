@@ -18,7 +18,6 @@
 		];
 
 		unsetHandlers(handlers, 'click');
-		
 
 		$('.auth_signin').on('click', function(event) {
 			gsAPI.authPrompt();

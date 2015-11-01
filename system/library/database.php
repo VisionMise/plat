@@ -89,7 +89,7 @@
 			}
 		}
 
-		public function query($sql) {
+		public function query($sql, $skipFetch = false) {
 			$connection 	= $this->database->connection;
 			$result 		= $connection->query($sql);
 			$data 			= [];
@@ -100,6 +100,8 @@
 			} else {
 				$this->lastResult	= $result;
 			}
+
+			if ($skipFetch) return $result;
 
 			while ($row = $result->fetch_assoc()) {
 				$data[]	= $row;
@@ -113,12 +115,35 @@
 			return (isset($records[0])) ? $records[0] : false;
 		}
 
-		public function insert(array $record = array(), array $buffer = array()) {
-
+		public function select($where) {
+			$sql 			= "SELECT * FROM `{$this->name}` $where";			
+			return $this->query($sql);
 		}
 
-		public function update($id, array $data = array(), array $buffer = array()) {
+		public function insert(array $record = array()) {
+			$insKeys 		= "`" . implode("`, `", array_keys($record)) . "`";
+			$insVals 		= "'" . implode("', '", array_values($record)) . "'";
+			$sql 			= "INSERT INTO `{$this->name}` ($insKeys) VALUES ($insVals);";
+			$result 		= $this->query($sql, true);
+			$lastId     	= $this->database->connection->insert_id;
+			
+			return $lastId;
+		}
 
+		public function update($id, array $data = array()) {
+
+			$uStr 		= "";
+			$keys 		= array_keys($data);
+			$lastKey 	= $keys[count($keys)-1];
+
+			foreach ($data as $key => $val) {
+				$uStr .= "`$key` = '$val'";
+				if ($key != $lastKey) $uStr .= ", ";
+			}
+
+			$sql 		= "UPDATE `{$this->name}` SET $uStr WHERE `id` = '$id';";
+			$result 	= $this->query($sql, true);
+			return $result;
 		}
 
 		public function delete($id, array $buffer = array()) {

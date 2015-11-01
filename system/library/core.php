@@ -145,7 +145,12 @@
 		}
 
 		private function validateToken($token) {
-			return false;
+			$auth 	= new auth();
+			$email 	= $auth->getUserByToken($token);
+			$user 	= $auth->getUser($email);
+
+			if (!$user) return false;
+			return true;
 		}	
 
 	}

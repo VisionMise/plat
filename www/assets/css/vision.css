@@ -1,0 +1,95 @@
+/** Stats  */
+progress.stats {
+	height: 14px;
+	width: 100%;
+}
+
+/** Map */
+	.map-container {
+    	background-color: rgba(0,0,0,1);
+   	}
+
+/** Tiles */
+	.tile {
+		opacity: 0.8;
+		color: #fff;
+	}
+
+	.tile :hover {
+		opacity: 1;
+		cursor: pointer;
+	}
+
+	.Water.tile {
+		background-color: rgba(0,0,255,0.5);
+		background-image: url('http://3.bp.blogspot.com/-IFmfJ19lZkw/Uk_6N6wNjNI/AAAAAAAACV8/OFQ1BOp1Ins/s640/AnimatedWater_012.png');
+		background-attachment: scroll;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.Grass.tile {
+		background-color: rgba(0,255,0,0.5);
+		background-image: url('http://previewcf.turbosquid.com/Preview/2014/08/01__22_25_34/360_tile_Grass.jpg35c1b446-6d9b-4a9e-bc5a-1a74920fbd9fLarge.jpg');
+		background-attachment: scroll;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.player.tile {
+		opacity: 1;
+		border-color: red;
+		box-shadow: none;
+	}
+
+	@media (max-width: 520px) {
+		.tile {
+		  	border:  solid 0px rgba(255,255,255,0.2);	
+			height:  40px;
+		  	width:   40px;
+		}
+
+		.tile.row {
+		  	border:  none;	
+			width:   360px;
+			height:  40px;
+
+			margin-left: auto;
+			margin-right: auto;	
+		}
+	}
+
+	@media (min-width: 520px) {
+		.tile {
+		  	border:  solid 0px rgba(255,255,255,0.2);	
+			height:  75px;
+		  	width:   75px;
+		}
+
+		.tile.row {
+		  	border:  none;	
+			width:   675px;
+			height:  75px;
+
+			margin-left: auto;
+			margin-right: auto;	
+		}
+	}
+
+	@media (min-width: 960px) {
+		.tile {
+		  	border:  solid 0px rgba(255,255,255,0.8);	
+			height:  100px;
+		  	width:   100px;
+		}
+
+		.tile.row {
+		  	border:  none;	
+			width:   900px;
+			height:  100px;
+
+			margin-left: auto;
+			margin-right: auto;	
+		}
+	}
+

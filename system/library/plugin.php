@@ -2,7 +2,7 @@
 
 	abstract class plugin {
 
-		public $name;
+		public $typeName;
 		public $errors;
 
 		protected $meta;
@@ -14,14 +14,14 @@
 
 
 		/** Magic Functions */
-			public function __construct($name = null) {
+			public function __construct($typeName = null) {
 				global $mods;
 				global $plugin_dbs;
 
-				$this->name 		= $name;
+				$this->typeName 		= $typeName;
 				$this->connections 	= [];
-				$this->meta 		= (isset($mods[$name])) 		? $mods[$name] 			: [];
-				$this->databases 	= (isset($plugin_dbs[$name]))	? $plugin_dbs[$name]	: [];
+				$this->meta 		= (isset($mods[$typeName])) 		? $mods[$typeName] 			: [];
+				$this->databases 	= (isset($plugin_dbs[$typeName]))	? $plugin_dbs[$typeName]	: [];
 
 				$this->loadConfig();
 				$this->loadDbs();

@@ -1,0 +1,23 @@
+{
+	"version":		"0.1.1",
+
+	"newPlayer":	{
+
+		"startingPos":	{
+			"min_x":		1,
+			"max_x":		40,
+			"min_y":		1,
+			"max_y":		40
+		}
+	},
+
+	"stats":		{
+
+		"level": 	{
+			"scale":		21,
+			"base":			1000,
+			"weight":		4.20
+		}
+
+	}
+}

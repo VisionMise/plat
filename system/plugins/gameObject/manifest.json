@@ -1,0 +1,23 @@
+{
+	"name":			"gameObject",
+
+	"libraries":	[
+		"gameObject"
+	],
+
+	"config":		[
+		"gameObject"
+	],
+
+	"databases":	[
+		"local"
+	],
+
+	"local": 	{
+		"host":		"localhost",
+		"port":		"3306",
+		"username":	"pge",
+		"password":	"af3264ac7",
+		"schema":	"pge"
+	}
+}
