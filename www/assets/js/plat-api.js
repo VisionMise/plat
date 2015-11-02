@@ -61,7 +61,7 @@ var platAPI = function(contextRequest) {
 
 	/** Notifcations **/
 		this.notify 			= function(title, message, data, callback) {
-			if (!this.notes.notify(title, message, data, callback)) return false;
+			//if (!this.notes.notify(title, message, data, callback)) return false;
 			return true;
 		};
 

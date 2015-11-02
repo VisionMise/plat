@@ -20,7 +20,7 @@ progress.stats {
 		cursor: pointer;
 	}
 
-	.Water.tile {
+	.water.tile {
 		background-color: rgba(0,0,255,0.5);
 		background-image: url('http://3.bp.blogspot.com/-IFmfJ19lZkw/Uk_6N6wNjNI/AAAAAAAACV8/OFQ1BOp1Ins/s640/AnimatedWater_012.png');
 		background-attachment: scroll;
@@ -28,12 +28,20 @@ progress.stats {
 		background-repeat: no-repeat;
 	}
 
-	.Grass.tile {
+	.grass.tile {
 		background-color: rgba(0,255,0,0.5);
-		background-image: url('http://previewcf.turbosquid.com/Preview/2014/08/01__22_25_34/360_tile_Grass.jpg35c1b446-6d9b-4a9e-bc5a-1a74920fbd9fLarge.jpg');
+		background-image: url('../tiles/grass.jpg');
 		background-attachment: scroll;
 		background-size: cover;
 		background-repeat: no-repeat;
+	}
+
+	.forest.tile {
+		background-color: rgba(0,100,0,0.5);
+		background-image: url('../tiles/forest.png');
+		background-attachment: scroll;
+		background-size: cover;
+		background-repeat: no-repeat;	
 	}
 
 	.player.tile {
