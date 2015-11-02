@@ -37,13 +37,18 @@
 			if ($y < $this->cur_y) $y = $this->cur_y - 1;
 
 			$tile 				= $this->map->tile(new pos($x, $y));
-			if ($tile['type'] != 'Grass') return false;
+			if ($tile['type'] == 'water') return false;
 
-			
+			$xC		= ($x != $this->cur_x) ? 1 : 0;
+			$yC		= ($y != $this->cur_y) ? 1 : 0;
+			$reqAp 	= ($xC + $yC);
+			$newAp 	= ($this->cur_ap - $reqAp);
+			if ($newAp < 0) return false;
 
 			$update 	= [
 				'cur_x'		=> $x,
 				'cur_y'		=> $y,
+				'cur_ap'	=> $newAp
 			];
 
 			if (!$this->table('pge_player')->update($uid, $update)) return false;
