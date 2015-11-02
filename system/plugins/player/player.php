@@ -16,10 +16,12 @@
 
 			if (!$this->loaded) return false;
 
-			$playerPos 		= new pos($this->cur_x, $this->cur_y);
-			$this->map 		= new map($playerPos);
+			$playerPos 		    = new pos($this->cur_x, $this->cur_y);
+			$this->map 		    = new map($playerPos);
 
 			$this->calcStats();
+			
+			$this->inventory  = new inventory($this, $this->inv_size);
 		}
 
 		public function moveTo($x, $y) {
@@ -54,6 +56,11 @@
 			if (!$this->table('pge_player')->update($uid, $update)) return false;
 			
 			return true;
+		}
+		
+		public function initActions() {
+		  
+		  if ($this->ap > 0) $this->addAction('Move', 'moveTo');
 		}
 
 		private function createNewPlayer($email, $uid) {
@@ -97,12 +104,13 @@
 
 			$weight 			= $template['weight'];
 
-			$this->attributes['str']	= floor($this->str + (10 / $weight) * ($this->level() * ($weight * $this->str)) / 10);
-			$this->attributes['int']	= floor($this->int + (10 / $weight) * ($this->level() * ($weight * $this->int)) / 10);
-			$this->attributes['end']	= floor($this->end + (10 / $weight) * ($this->level() * ($weight * $this->end)) / 10);
+			$this->attributes['str']	    = floor($this->str + (10 / $weight) * ($this->level() * ($weight * $this->str)) / 10);
+			$this->attributes['int']	    = floor($this->int + (10 / $weight) * ($this->level() * ($weight * $this->int)) / 10);
+			$this->attributes['end']	    = floor($this->end + (10 / $weight) * ($this->level() * ($weight * $this->end)) / 10);
 
-			$this->attributes['max_hp']	= floor($this->end + (10 / $weight) * ($this->level() * $weight));
-			$this->attributes['max_ap']	= floor(1 + (($this->int / 2) + ($this->end / 4) * $weight) + (($this->level() / 4) * $weight));
+      $this->attributes['inv_size'] = floor(36 + ($this->end / 2));
+			$this->attributes['max_hp']	  = floor($this->end + (10 / $weight) * ($this->level() * $weight));
+			$this->attributes['max_ap']	  = floor(1 + (($this->int / 2) + ($this->end / 4) * $weight) + (($this->level() / 4) * $weight));
 		}
 
 		public function xp($level = 1) {

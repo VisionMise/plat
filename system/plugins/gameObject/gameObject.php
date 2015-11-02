@@ -6,6 +6,8 @@
 		protected $label;
 		protected $id;
 		protected $attributes		= [];
+		protected $actions;
+		protected $inventory;
 
 		private $loaded;
 
@@ -24,6 +26,10 @@
 				? $this->attributes[$key]
 				: null
 			;
+		}
+		
+		public function addAction($label, $action) {
+		  $this->actions[$label]  = $action;
 		}
 
 		protected function loadSelf() {
