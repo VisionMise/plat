@@ -11,7 +11,7 @@ progress.stats {
 
 /** Tiles */
 	.tile {
-		opacity: 0.8;
+		opacity: 1;
 		color: #fff;
 	}
 

@@ -16,9 +16,9 @@ var platAPI = function(contextRequest) {
 		this.init 			= function() {
 			this.apiSource 		= './api/';
 
-			this.events 		= new eventAPI();
-			this.notes 			= new notifyAPI();
-			this.init_events_api();
+			//this.events 		= new eventAPI();
+			//this.notes 			= new notifyAPI();
+			//this.init_events_api();
 
 			
 

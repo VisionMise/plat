@@ -77,11 +77,13 @@
 /** UX  */
 	function page(pageName, param) {
 		gsAPI.page(pageName, param, '#content');
+		register_handlers();
 	}
 
 	function init_home_page() {
 		gsAPI.page('home', [], '#content', function(data) {
 			check_authentication();
+			register_handlers();
 		});
 	}
 

@@ -39,9 +39,11 @@
 			$tile 				= $this->map->tile(new pos($x, $y));
 			if ($tile['type'] != 'Grass') return false;
 
+			
+
 			$update 	= [
 				'cur_x'		=> $x,
-				'cur_y'		=> $y
+				'cur_y'		=> $y,
 			];
 
 			if (!$this->table('pge_player')->update($uid, $update)) return false;

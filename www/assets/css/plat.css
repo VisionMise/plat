@@ -173,29 +173,3 @@ a {
 	}
 }
 
-@media (min-width: 768px) {
-	div, p, body, nav, ul, a, li, ol, button, span, html {
-		transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-		-webkit-transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-		-moz-transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-		-o-transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-	}
-}
-
-@media (min-width: 992px) {
-	div, p, body, nav, ul, a, li, ol, button, span, html {
-		transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-		-webkit-transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-		-moz-transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-		-o-transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-	}
-}
-
-@media (min-width: 1200px) {
-	div, p, body, nav, ul, a, li, ol, button, span, html {
-		transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-		-webkit-transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-		-moz-transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-		-o-transition: -webkit-filter 0.35s, filter 0.35s, opacity 0.35s, color 0.35s, background-color 0.35s;
-	}
-}
