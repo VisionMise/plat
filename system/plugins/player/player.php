@@ -102,7 +102,7 @@
 			$this->attributes['end']	= floor($this->end + (10 / $weight) * ($this->level() * ($weight * $this->end)) / 10);
 
 			$this->attributes['max_hp']	= floor($this->end + (10 / $weight) * ($this->level() * $weight));
-			$this->attributes['max_ap']	= 1 + $this->level();
+			$this->attributes['max_ap']	= floor(1 + (($this->int / 2) + ($this->end / 4) * $weight) + (($this->level() / 4) * $weight));
 		}
 
 		public function xp($level = 1) {

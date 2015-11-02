@@ -7,8 +7,6 @@
 	],
 
 	"libraries": 		[
-		"notes",
-		"events",
 		"config",
 		"mail",
 		"auth",
@@ -29,9 +27,7 @@
 
 	"plugable":			[
 		"logger",
-		"errorHandler",
-		"events",
-		"notes"
+		"errorHandler"
 	]
 
 }

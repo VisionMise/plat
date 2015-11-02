@@ -107,7 +107,7 @@
 						for ($cy = $y1; $cy <= $y2; $cy++) {
 							$roll 	= rand(1,8);
 							if ($roll < 5) {
-								if ($cx > 0 and $cy > 0) {
+								if ($cx > 0 and $cy > 0 and $cx <= $this->xSize and $cx <= $this->ySize) {
 									$map[$cx][$cy]['type']	= 'water';
 									$map[$cx][$cy]['label']	= 'Water';	
 								}
@@ -150,8 +150,10 @@
 						for ($cx = $x1; $cx <= $x2; $cx++) {
 							for ($cy = $y1; $cy <= $y2; $cy++) {
 								if (!isset($map[$cx][$cy]['type'])) continue;
-								$map[$x][$y]['type']	= 'water';
-								$map[$x][$y]['label']	= 'Water';
+								if ($cx > 0 and $cy > 0 and $cx <= $this->xSize and $cx <= $this->ySize) {
+									$map[$x][$y]['type']	= 'water';
+									$map[$x][$y]['label']	= 'Water';
+								}
 							}
 						}
 					}
@@ -193,8 +195,10 @@
 						for ($cx = $x1; $cx <= $x2; $cx++) {
 							for ($cy = $y1; $cy <= $y2; $cy++) {
 								if (!isset($map[$cx][$cy]['type'])) continue;
-								$map[$x][$y]['type']	= 'forest';
-								$map[$x][$y]['label']	= 'Forest';
+								if ($cx > 0 and $cy > 0 and $cx <= $this->xSize and $cx <= $this->ySize) {
+									$map[$x][$y]['type']	= 'forest';
+									$map[$x][$y]['label']	= 'Forest';
+								}
 							}
 						}
 					}
@@ -234,7 +238,7 @@
 						for ($cy = $y1; $cy <= $y2; $cy++) {
 							$roll 	= rand(1,800);
 							if ($roll < 5) {
-								if ($cx > 0 and $cy > 0) {
+								if ($cx > 0 and $cy > 0 and $cx <= $this->xSize and $cx <= $this->ySize) {
 									$map[$cx][$cy]['type']	= 'forest';
 									$map[$cx][$cy]['label']	= 'Forest';	
 								}
