@@ -24,14 +24,17 @@
 			$this->inventory  = new inventory($this, $this->inv_size);
 		}
 
-		public function moveTo($x, $y) {
+		private function loadPlayer() {
 			$auth 				= new auth();
 			$username 			= $auth->authenticated();
 			$uid 				= hash('md5', $username);
 
 			$this->attributes 	= $this->table('pge_player')->record($uid);
+			return $uid;
+		}
 
-			
+		public function moveTo($x, $y) {
+			$uid 		= $this->loadPlayer();			
 
 			if ($x > $this->cur_x) $x = $this->cur_x + 1;
 			if ($x < $this->cur_x) $x = $this->cur_x - 1;
@@ -56,6 +59,31 @@
 			if (!$this->table('pge_player')->update($uid, $update)) return false;
 			
 			return true;
+		}
+
+		public function move($direction) {
+			$uid 		= $this->loadPlayer();
+			
+			switch (trim(strtolower($direction))) {
+
+				case 'north':
+					return $this->moveTo($this->cur_x, $this->cur_y - 1);
+				break;
+
+				case 'south':
+					return $this->moveTo($this->cur_x, $this->cur_y + 1);
+				break;
+
+				case 'west':
+					return $this->moveTo($this->cur_x - 1, $this->cur_y);
+				break;
+
+				case 'east':
+					return $this->moveTo($this->cur_x + 1, $this->cur_y);
+				break;
+			}
+
+			return false;
 		}
 		
 		public function initActions() {

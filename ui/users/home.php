@@ -4,7 +4,7 @@
    $username   = $auth->authenticated();
    $player     = new player($username);
 
-   $viewport   = new pos(8,4);
+   $viewport   = new pos(10,6);
    $view       = $player->map->view($viewport);
    $pos        = $player->map->position;
    $img        = $player->img;
@@ -41,7 +41,7 @@
                         ?>
 
                         <div onclick="player.move(<?=$x;?>, <?=$y;?>);" data-x="<?=$x;?>" data-y="<?=$y;?>" class="<?=$class;?> col-xs-1 <?=$tile['type'];?> tile x<?=$x;?>y<?=$y;?>">
-                           <?php if ($img and $class == 'player') {?><img src="<?=$img;?>" style="width:90%;height:90%;position:absolute;top:5%;left:5%;right:5%;bottom:5%;"> <?php } ?>
+                           <?php if ($img and $class == 'player') {?><img src="<?=$img;?>"> <?php } ?>
                         </div>
                      <?php } ?>
                   </div>

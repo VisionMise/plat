@@ -19,6 +19,44 @@
 
 		unsetHandlers(handlers, 'click');
 
+		$(document).unbind('keydown');
+
+		$(document).on('keydown', function(event) {
+			var player = new playerAPI();
+
+			console.log(event.keyCode);
+
+			switch (event.keyCode) {
+
+				case 65://a
+				case 37://left
+					player.goWest();
+				break;
+
+				case 87://w
+				case 38://up
+					player.goNorth();
+				break;
+
+				case 68://d
+				case 39://right					
+					player.goEast();
+				break;
+
+				case 83://s
+				case 40://down
+					player.goSouth();
+				break;
+
+				default:
+					return;
+				break;
+
+			}
+
+			event.preventDefault();
+		});
+
 		$('.auth_signin').on('click', function(event) {
 			gsAPI.authPrompt();
 		});
