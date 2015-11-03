@@ -44,7 +44,7 @@
 			$driedMap 				= $this->removeIslands($driedMap);
 
 			print "Removing small bodies of water (seventh pass) ...\n";
-			$driedMap 				= $this->removeWater($driedMap);
+			$driedMap 				= $this->generateWater($driedMap, 0.5);
 
 
 
@@ -106,7 +106,7 @@
 					for ($cx = $x1; $cx <= $x2; $cx++) {
 						for ($cy = $y1; $cy <= $y2; $cy++) {
 							$roll 	= rand(1,8);
-							if ($roll < 5) {
+							if ($roll < 6) {
 								if ($cx > 0 and $cy > 0 and $cx <= $this->xSize and $cx <= $this->ySize) {
 									$map[$cx][$cy]['type']	= 'water';
 									$map[$cx][$cy]['label']	= 'Water';	
