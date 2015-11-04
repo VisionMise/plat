@@ -9,6 +9,10 @@
    $pos        = $player->map->position;
    $img        = $player->img;
 
+   $miniViewport  = new pos(30,18);
+   $miniMap       = $player->map->view($miniViewport);
+
+
 ?>
 <script>
    var player = new playerAPI();
@@ -28,7 +32,7 @@
                   ;
                ?>
 
-               <div onclick="player.move(<?=$x;?>, <?=$y;?>);" data-x="<?=$x;?>" data-y="<?=$y;?>" class="<?=$class;?> col-xs-1 <?=$tile['type'];?> tile x<?=$x;?>y<?=$y;?>">
+               <div onclick="player.move(<?=$x;?>, <?=$y;?>);" x="<?=$x;?>" y="<?=$y;?>" class="<?=$class;?> col-xs-1 <?=$tile['type'];?> tile x<?=$x;?>y<?=$y;?>">
                   <?php if ($img and $class == 'player') {?><img src="<?=$img;?>"> <?php } ?>
                </div>
             <?php } ?>
@@ -86,33 +90,33 @@
          <div class="col-xs-6 padded-md container">
             <div class="row center text-sm">
                <div class="col-xs-2">
-                  <div class="action button">
-                     1
+                  <div class="action button inventory" title="Inventory">
+                     <span class="text-warning glyphicon glyphicon-th"></span>
                   </div>
                </div>
                <div class="col-xs-2">
-                  <div class="action button">
-                     2
+                  <div class="action button" title="Stats">
+                     <span class="text-primary glyphicon glyphicon-stats"></span>
                   </div>
                </div>
                <div class="col-xs-2">
-                  <div class="action button">
-                     3
+                  <div class="action button" title="Skills">
+                     <span class="text-primary glyphicon glyphicon-list-alt"></span>
                   </div>
                </div>
                <div class="col-xs-2">
-                  <div class="action button">
-                     4
+                  <div class="action button minimap" title="Area Map">
+                     <span class="text-primary glyphicon glyphicon-picture"></span>
                   </div>
                </div>
                <div class="col-xs-2">
-                  <div class="action button">
-                     5
+                  <div class="action button" title="Players">
+                     <span class="text-success glyphicon glyphicon-user"></span>
                   </div>
                </div>
                <div class="col-xs-2">
-                  <div class="action button">
-                     6
+                  <div class="action button" title="Sign Out">
+                     <span class="text-danger glyphicon glyphicon-off"></span>
                   </div>
                </div>
             </div>   
@@ -137,6 +141,60 @@
             </small>
          </div>
 
+      </div>
+   </div>
+</section>
+
+<section class="inventory map-container window">
+   <div class="spaceless tight">
+      <div class="header">
+         <h4 class="text-warning">
+            <span class="glyphicon glyphicon-th"></span>
+            Inventory
+            <span class="text-danger pointer glyphicon pull-right glyphicon-remove"></span>
+         </h4>
+      </div>
+      <div>
+         <ul class="nav nav-tabs warning border-bottom border-warning">
+            <li class="active">
+               <a href="#">Useable</a>
+            </li>
+            <li>
+               <a href="#">Equipable</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</section>
+
+<section class="minimap map-container window">
+   <div class="spaceless tight">
+      <div class="header">
+         <h4 class="text-primary">
+            <span class="glyphicon glyphicon-picture"></span>
+            Mini-Map
+            <span class="text-danger pointer glyphicon pull-right glyphicon-remove"></span>
+         </h4>
+      </div>
+      <div class="container-fluid">
+         <div class="row-fluid">
+            <div class="col-xs-6 col-xs-offset-3">
+               <table style="minimap">
+                  <tbody>
+                     <?php foreach ($miniMap as $y => $xs) { ?>
+                        <tr>
+                           <?php foreach ($xs as $x => $tile) { ?>
+                              <?php $class = ($x == $pos->x and $y == $pos->y) ? 'player' : $tile['type']; ?>
+                              <td class="<?=$class;?> sm-tile">
+                                 &nbsp;
+                              </td>
+                           <?php } ?>
+                        </tr>
+                     <?php } ?>
+                  </tbody>
+               </table>
+            </div>
+         </div>
       </div>
    </div>
 </section>

@@ -14,7 +14,9 @@
 			'auth_forgot',
 			'auth_perform_auth',
 			'auth_perform_signout',
-			'dialog_cancel'
+			'dialog_cancel',
+			'tile',
+			'action.button'
 		];
 
 		unsetHandlers(handlers, 'click');
@@ -48,6 +50,14 @@
 					player.goSouth();
 				break;
 
+				case 73://i
+					player.inventory();
+				break;
+
+				case 77://m
+					player.minimap();
+				break;
+
 				default:
 					return;
 				break;
@@ -55,6 +65,21 @@
 			}
 
 			event.preventDefault();
+		});
+
+		$('.tile').on('click', function(event) {
+			var x = $(this).attr('x');
+			var y = $(this).attr('y');
+			
+			player.move(x, y);
+		});
+
+		$('.action.button.inventory').on('click', function(event) {
+			player.inventory();
+		});
+
+		$('.action.button.minimap').on('click', function(event) {
+			player.minimap();
 		});
 
 		$('.auth_signin').on('click', function(event) {

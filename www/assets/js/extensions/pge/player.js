@@ -24,16 +24,26 @@ var playerAPI = function() {
 		});
 	};
 
-	this.goWest	= function() {
+	this.goWest		= function() {
 		this.api.call('move', ['west'], function(data) {
 			if (data == true) gsAPI.page('home', {}, '#content', function(event) {});
 		});
 	};
 
-	this.goEast	= function() {
+	this.goEast		= function() {
 		this.api.call('move', ['east'], function(data) {
 			if (data == true) gsAPI.page('home', {}, '#content', function(event) {});
 		});
+	};
+
+	this.inventory 	= function() {
+		$('.window').not('section.inventory').slideUp(250);
+		$('section.inventory').slideToggle(250);
+	};
+
+	this.minimap 	= function() {
+		$('.window').not('section.minimap').slideUp(250);
+		$('section.minimap').slideToggle(250);
 	};
 
 	return this.init();
