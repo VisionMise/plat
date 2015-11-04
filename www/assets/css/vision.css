@@ -1,15 +1,75 @@
 /** Stats  */
-progress.stats {
-	height: 14px;
-	width: 100%;
-}
+	progress.stats {
+		height: 9px;
+		width: 100%;
+	}
+
+/** Buttons */
+
+	.action.button {
+		height: 48px;
+		padding-top:3px;
+		font-size:24px;
+		cursor: pointer;
+		background: rgba(100,100,200,0.5);
+	}
+
+	.action.button:hover {
+		border: solid 1px rgba(150,150,250,0.8);;
+	}
 
 /** Map */
+
+	.map {
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	section.stats {
+		position: fixed;
+		width: 100%;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		margin: 0px;
+		padding: 0px;	
+	}
+
+	section.header {
+		position: fixed;
+		width: 100%;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		margin: 0px;
+		padding: 0px;	
+	}
+
 	.map-container {
     	background-color: rgba(0,0,0,1);
    	}
 
+   	.map-container.map {
+   		position: 	absolute;
+		height:		100%;
+		width: 		100%;
+		top: 		0%;
+		bottom: 	0%;
+		left:		0%;
+		right:		0%;
+		margin: 	0px;
+		padding: 	0px;
+   	}
+
 /** Tiles */
+
 	.tile {
 		opacity: 1;
 		color: #fff;
@@ -132,17 +192,16 @@ progress.stats {
 	@media (min-width: 945px) {
 		.tile {
 		  	border:  solid 0px rgba(255,255,255,0.8);	
-			height:  42px;
-		  	width:   42px;
+			height:  44px;
+		  	width:   44px;
 		}
 
 		.tile.row {
 		  	border:  none;	
-			width:   900px;
-			height:  42px;
+			width:   940px;
+			height:  44px;
 
 			margin-left: auto;
 			margin-right: auto;	
 		}
 	}
-
