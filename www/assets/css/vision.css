@@ -7,6 +7,10 @@
 		border-color:#2196f3;
 	}
 
+	.border-success {
+		border-color:#4caf50;
+	}
+
 	ul.nav.nav-tabs.warning > li > a {
 		color: #ff9800;
 		border-color: #ff9800;
@@ -32,6 +36,20 @@
 		color: #2196f3;
 		border-color: #2196f3;;
 		box-shadow: inset 0 -2px 0 #2196f3;; 
+		cursor: pointer;
+	}
+
+	ul.nav.nav-tabs.success > li > a {
+		color: #4caf50;
+		border-color: #4caf50;
+		box-shadow: inset 0 -1px 0 #4caf50; 
+		cursor: pointer;
+	}
+
+	ul.nav.nav-tabs.success > li.active > a {
+		color: #4caf50;
+		border-color: #4caf50;;
+		box-shadow: inset 0 -2px 0 #4caf50;; 
 		cursor: pointer;
 	}
 
@@ -81,6 +99,10 @@
 		padding: 0px;
 	}
 
+	.map-spacer {
+		height: 60px;
+	}
+
 	section.stats {
 		position: fixed;
 		width: 100%;
@@ -101,20 +123,10 @@
 		padding: 0px;	
 	}
 
-	section.inventory {
-		position: 	fixed;
-		height:		75%;
-		width: 		100%;
-		bottom: 	0%;
-		left:		0px;
-		right:		0px;
-		margin: 	0px;
-		padding: 	40px;
-		display: 	none;
-		overflow:	auto;
-		opacity: 	0.9;
-	}
-
+	section.inventory,
+	section.playerPage,
+	section.skills,
+	section.players,
 	section.minimap {
 		position: 	fixed;
 		height:		75%;
@@ -123,16 +135,16 @@
 		left:		0px;
 		right:		0px;
 		margin: 	0px;
-		padding: 	40px;
+		padding: 	5px;
 		display: 	none;
 		overflow:	auto;
 		opacity: 	0.9;
 	}
 
 	table.minimap {
-		width: 		100%;
-		margin: 	auto;
 		padding: 	0px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.map-container {
@@ -175,7 +187,6 @@
 	.sm-tile {
 		height: 8px;
 		width:	8px;
-		border: solid 1px rgba(0,0,0,0.8);
 		line-height: 0.1px;
 	}
 
@@ -186,14 +197,17 @@
 
 	.water.sm-tile {
 		background-color: rgba(0,0,255,0.5);
+		border: solid 1px rgba(0,0,205,0.2);
 	}
 
 	.grass.sm-tile {
 		background-color: rgba(0,255,0,0.5);
+		border: solid 1px rgba(0,205,0,0.2);
 	}
 
 	.forest.sm-tile {
 		background-color: rgba(0,180,0,0.5);
+		border: solid 1px rgba(0,130,0,0.2);
 	}
 
 	.grass.tile {

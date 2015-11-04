@@ -14,9 +14,14 @@
 			'auth_forgot',
 			'auth_perform_auth',
 			'auth_perform_signout',
-			'dialog_cancel',
+			'dialog_cancel',	
 			'tile',
-			'action.button'
+			'action.button',
+			'action.button.players',
+			'action.button.playerPage',
+			'action.button.skills',
+			'action.button.minimap',
+			'window-close'
 		];
 
 		unsetHandlers(handlers, 'click');
@@ -26,7 +31,7 @@
 		$(document).on('keydown', function(event) {
 			var player = new playerAPI();
 
-			console.log(event.keyCode);
+			//console.log(event.keyCode);
 
 			switch (event.keyCode) {
 
@@ -50,6 +55,7 @@
 					player.goSouth();
 				break;
 
+				case 9://tab
 				case 73://i
 					player.inventory();
 				break;
@@ -57,6 +63,20 @@
 				case 77://m
 					player.minimap();
 				break;
+
+				case 80://p
+					player.playerPage();
+				break;
+
+				case 84://t
+					player.players();
+				break;
+
+				case 76://l
+					player.skills();
+				break;
+
+
 
 				default:
 					return;
@@ -74,12 +94,28 @@
 			player.move(x, y);
 		});
 
+		$('.window-close').on('click', function(event) {
+			$('.window').slideUp(250);
+		});
+
 		$('.action.button.inventory').on('click', function(event) {
 			player.inventory();
 		});
 
 		$('.action.button.minimap').on('click', function(event) {
 			player.minimap();
+		});
+
+		$('.action.button.skills').on('click', function(event) {
+			player.skills();
+		});
+
+		$('.action.button.playerPage').on('click', function(event) {
+			player.playerPage();
+		});
+
+		$('.action.button.players').on('click', function(event) {
+			player.players();
 		});
 
 		$('.auth_signin').on('click', function(event) {

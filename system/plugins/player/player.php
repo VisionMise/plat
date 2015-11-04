@@ -42,7 +42,7 @@
 			if ($y < $this->cur_y) $y = $this->cur_y - 1;
 
 			$tile 				= $this->map->tile(new pos($x, $y));
-			if ($tile['type'] == 'water') return false;
+			//if ($tile['type'] == 'water') return false;
 
 			$xC		= ($x != $this->cur_x) ? 1 : 0;
 			$yC		= ($y != $this->cur_y) ? 1 : 0;

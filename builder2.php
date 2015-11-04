@@ -28,7 +28,7 @@
 			$initialPassMap 		= $this->generateMemoryMap();
 
 			print "Adding water bodies to map (second pass) ...\n";
-			$waterfiedMap 			= $this->generateWater($initialPassMap, 0.25);
+			$waterfiedMap 			= $this->generateWater($initialPassMap, 0.05);
 			
 			print "Amplifying water bodies to map (third pass) ...\n";
 			$waterfiedMap 			= $this->generateWater($waterfiedMap, 0.25);			
